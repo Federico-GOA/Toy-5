@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://d081emdkstlht"]
+
+[ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="1_8gqv7"]
+[ext_resource type="FontFile" uid="uid://b77s23de1nhjl" path="res://assets/MaldiniBold.ttf" id="1_iueju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfbk7"]
+bg_color = Color(0.109804, 0.380392, 0.584314, 1)
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_8gqv7")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dfbk7")
+
+[node name="ResultLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -66.0
+offset_right = 139.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_iueju")
+theme_override_font_sizes/font_size = 76
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="."]
+offset_left = 371.0
+offset_top = 554.0
+offset_right = 621.0
+offset_bottom = 617.0
+theme_override_colors/font_color = Color(0.227451, 0.529412, 0.537255, 1)
+theme_override_fonts/font = ExtResource("1_iueju")
+theme_override_font_sizes/font_size = 33
+text = "PLAY AGAIN"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
